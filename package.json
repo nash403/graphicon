@@ -1,16 +1,14 @@
 {
   "name": "v-gicon",
   "version": "0.1.0",
-  "description":
-    "A Vue.js plugin/component to help you manage your icons seamlessly",
+  "description": "A Vue.js plugin/component to help you manage your icons seamlessly",
   "main": "dist/g-icon.js",
   "repository": "https://github.com/nash403/g-icon",
   "author": "Honoré Nintunze <nintu.lab@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && webpack --progress --hide-modules",
-    "build:prod":
-      "rimraf dist && NODE_ENV=production webpack --progress --hide-modules"
+    "build:prod": "rimraf dist && NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -19,6 +17,10 @@
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "rimraf": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"

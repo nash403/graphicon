@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const PROD = process.env.NODE_ENV === 'production'
@@ -39,17 +38,17 @@ const baseConfig = {
   },
   plugins: PROD
     ? [
-        new UglifyJSPlugin({
-          sourceMap: false,
-          uglifyOptions: {
-            mangle: {
-              // Works around a Safari 10 bug:
-              // https://github.com/mishoo/UglifyJS2/issues/1753
-              safari10: true
-            }
+      new UglifyJSPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          mangle: {
+            // Works around a Safari 10 bug:
+            // https://github.com/mishoo/UglifyJS2/issues/1753
+            safari10: true
           }
-        })
-      ]
+        }
+      })
+    ]
     : []
 }
 

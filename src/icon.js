@@ -1,7 +1,7 @@
 import DEFAULT_ATTRS from './default-attrs.json'
 
 class Icon {
-  constructor(name, { contents, isSVGinnerContent = false, tags = [] }) {
+  constructor (name, { contents, isSVGinnerContent = false, tags = [] }) {
     this.name = name
     this.contents =
       typeof contents === 'string' && contents
@@ -19,7 +19,7 @@ class Icon {
    * @param {Object} attrs
    * @returns {string}
    */
-  toSvg(attrs = {}) {
+  toSvg (attrs = {}) {
     const combinedAttrs = {
       ...this.attrs,
       ...attrs,
@@ -37,7 +37,7 @@ class Icon {
  * @param {boolean} isSVGinnerContent
  * @returns {string}
  */
-function makeContents(contents, isSVGinnerContent) {
+function makeContents (contents, isSVGinnerContent) {
   return isSVGinnerContent ? contents : stripSVGTag(contents)
 }
 
@@ -47,7 +47,7 @@ function makeContents(contents, isSVGinnerContent) {
  * @param {string} svgString
  * @returns {string}
  */
-function stripSVGTag(svgString) {
+function stripSVGTag (svgString) {
   return new DOMParser().parseFromString(svgString, 'image/svg+xml').firstChild
     .innerHTML
 }
@@ -57,7 +57,7 @@ function stripSVGTag(svgString) {
  * @param {array} classes
  * @returns {string}
  */
-function classnames(...classes) {
+function classnames (...classes) {
   return Array.from(
     new Set(
       classes
@@ -73,7 +73,7 @@ function classnames(...classes) {
  * @param {Object} attrs
  * @returns {string}
  */
-function attrsToString(attrs) {
+function attrsToString (attrs) {
   return Object.entries(attrs)
     .map(([key, value]) => `${key}="${value}"`)
     .join(' ')

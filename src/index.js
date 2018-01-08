@@ -1,6 +1,6 @@
 import GIcon from './gicon'
 
-const install = function(Vue, options) {
+const install = function (Vue, options) {
   if (options) GIcon.initGIcons(options)
   Vue.component('g-icon', GIcon)
   Vue.prototype.$initGIcons = GIcon.initGIcons

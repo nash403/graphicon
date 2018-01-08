@@ -31,7 +31,7 @@ export default {
   },
 
   computed: {
-    icon() {
+    icon () {
       if (this.rawSvg) return this.rawSvg
       return this.name in _icons ? _icons[this.name].toSvg(this.options) : ''
     }
@@ -39,11 +39,11 @@ export default {
 
   template: `<i class="g-icon" :class="iconClasses" :style="iconStyle" v-html="icon"></i>`,
 
-  get GIcons() {
+  get GIcons () {
     return _icons
   },
 
-  initGIcons(allIcons = {}) {
+  initGIcons (allIcons = {}) {
     _icons = Object.entries(allIcons)
       .map(
         ([name, iconData]) =>
