@@ -1,7 +1,8 @@
 {
   "name": "g-icon",
   "version": "0.1.0",
-  "description": "TODO",
+  "description":
+    "A Vue.js plugin/component to help you manage your icons seamlessly",
   "main": "dist/g-icon.js",
   "repository": "https://github.com/nash403/g-icon",
   "author": "Honoré Nintunze <nintu.lab@gmail.com>",
