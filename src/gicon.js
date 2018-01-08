@@ -1,7 +1,7 @@
 import Icon from './icon'
 
 let _icons = {}
-window.totoIcons = _icons
+
 export default {
   props: {
     name: {
@@ -15,18 +15,6 @@ export default {
     options: {
       type: Object,
       default: () => ({})
-    },
-    iconStyle: {
-      type: Object,
-      default: () => ({
-        display: 'inline-flex',
-        'justify-content': 'center',
-        'align-items': 'center'
-      })
-    },
-    iconClasses: {
-      type: [String, Array, Object],
-      default: ''
     }
   },
 
@@ -37,24 +25,26 @@ export default {
     }
   },
 
-  template: `<i class="g-icon" :class="iconClasses" :style="iconStyle" v-html="icon"></i>`,
+  template: `<i class="g-icon" v-html="icon"></i>`,
 
-  get GIcons () {
+  get icons () {
     return _icons
   },
 
-  initGIcons (allIcons = {}) {
+  setIcons (allIcons = {}) {
     _icons = Object.entries(allIcons)
-      .map(
-        ([name, iconData]) =>
-          new Icon(
-            name,
-            typeof iconData === 'string' ? { contents: iconData } : iconData
-          )
-      )
-      .reduce((icons, icon) => {
-        icons[icon.name] = icon
-        return icons
+      .map(([name, iconData]) => new Icon(name, iconData))
+      .reduce((iconsAcc, icon) => {
+        iconsAcc[icon.name] = icon
+        return iconsAcc
       }, {})
-  }
+  },
+
+  replaceIcon (name, contents) {
+    if (_icons[name]) {
+      _icons[name] = new Icon(name, contents)
+    }
+  },
+
+  newIcon: (...args) => new Icon(...args)
 }

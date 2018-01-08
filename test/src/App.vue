@@ -31,8 +31,8 @@ export default {
   },
 
   computed: {
-    toto() {
-      return this.$GIcons
+    allIcons() {
+      return this.$icons
     }
   }
 }

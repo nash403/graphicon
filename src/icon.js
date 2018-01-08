@@ -1,13 +1,10 @@
 import DEFAULT_ATTRS from './default-attrs.json'
 
 class Icon {
-  constructor (name, { contents, isSVGinnerContent = false, tags = [] }) {
+  constructor (name, contents) {
     this.name = name
     this.contents =
-      typeof contents === 'string' && contents
-        ? makeContents(contents, isSVGinnerContent)
-        : ''
-    this.tags = tags
+      typeof contents === 'string' && contents ? removeSVGRootTag(contents) : ''
     this.attrs = {
       ...DEFAULT_ATTRS,
       ...{ class: `g-icon-svg gi-${name}` }
@@ -31,23 +28,12 @@ class Icon {
 }
 
 /**
- * Return contents if isSVGinnerContent is true
- * otherwise return the result of stripSVGTag
- * @param {string} contents
- * @param {boolean} isSVGinnerContent
- * @returns {string}
- */
-function makeContents (contents, isSVGinnerContent) {
-  return isSVGinnerContent ? contents : stripSVGTag(contents)
-}
-
-/**
  * Strip an svg string from the surrounding "<svg ...>*</svg> "
  * and return * as a string
  * @param {string} svgString
  * @returns {string}
  */
-function stripSVGTag (svgString) {
+function removeSVGRootTag (svgString) {
   return new DOMParser().parseFromString(svgString, 'image/svg+xml').firstChild
     .innerHTML
 }
