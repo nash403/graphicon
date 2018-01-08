@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import GIcon from '../../'
-
 export default {
   name: 'app',
   data() {
