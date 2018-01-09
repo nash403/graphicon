@@ -25,7 +25,7 @@ export default {
     }
   },
 
-  template: `<i class="g-icon" v-html="icon"></i>`,
+  template: `<i class="g-icon" aria-hidden="true" v-html="icon"></i>`,
 
   get icons () {
     return _icons
