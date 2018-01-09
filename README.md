@@ -2,6 +2,10 @@
 
 > A Vue.js plugin/component to help you manage your icons seamlessly
 
+## Installation
+
+`npm install v-gicon` or `yarn add v-gicon`
+
 ## Usage
 
 * Install the plugin:
