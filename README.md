@@ -28,9 +28,14 @@
   ```html
   <!-- the g-icon component will render as `<i class="g-icon" v-html="icon content"></i>` -->
 
+  <!-- call with icon name -->
   <g-icon name="icon-name" :options="{...}"/>
-  <!-- or -->
+  
+  <!-- or with raw svg string -->
   <g-icon rawSvg="svg contents here" :options="{...}"/>
+  
+  <!-- or if you use font-awesome for example you can just pass classes down to g-icon -->
+  <g-icon :class="fa-icon-name fa-..." />
   ```
 
   If you didn't install the plugin with Vue.use you'll have to declare the GIcon component first:
@@ -65,6 +70,8 @@ The `options` props of `g-icon` is an object containing attributes that will be 
 }
 ```
 
-## Test
+## Example
 
-run `cd test && npm run dev`
+1. `git clone` the repo
+2. run `cd g-icon/test && npm run dev` and it will open your browser at localhost:8080
+3. See the result
