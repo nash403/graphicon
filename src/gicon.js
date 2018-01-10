@@ -20,7 +20,7 @@ export default {
 
   computed: {
     icon () {
-      if (this.rawSvg) return this.rawSvg
+      if (this.rawSvg) return new Icon('', this.rawSvg).toSvg(this.options)
       return this.name in _icons ? _icons[this.name].toSvg(this.options) : ''
     }
   },
