@@ -23,7 +23,7 @@ class Icon {
       ...{ class: classnames(this.attrs.class, attrs.class) }
     }
 
-    return `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>`
+    return this.contents ? `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>` : ''
   }
 }
 
