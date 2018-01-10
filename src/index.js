@@ -13,6 +13,6 @@ if (typeof window !== 'undefined') {
   window.GIcon = GIcon
 }
 
-export { default as Icon } from './icon'
+export { default as Icon } from './Icon'
 
 export default GIcon
