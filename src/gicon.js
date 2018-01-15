@@ -25,7 +25,19 @@ export default {
     }
   },
 
-  template: `<i class="g-icon" aria-hidden="true" v-html="icon"></i>`,
+  render (h) {
+    return h('i', {
+      class: {
+        'g-icon': true
+      },
+      attrs: {
+        'aria-hidden': true
+      },
+      domProps: {
+        innerHTML: this.icon
+      }
+    })
+  },
 
   get icons () {
     return _icons
