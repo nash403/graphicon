@@ -1,13 +1,14 @@
 import DEFAULT_ATTRS from './default-attrs.json'
 
 class Icon {
-  constructor (name, contents) {
+  constructor (name, contents, attrs = {}) {
     this.name = name
     this.contents =
       typeof contents === 'string' && contents ? removeSVGRootTag(contents) : ''
     this.attrs = {
       ...DEFAULT_ATTRS,
-      ...{ class: `g-icon-svg gi-${name}` }
+      ...attrs,
+      ...{ class: classnames(`g-icon-svg gi-${name}`, attrs.class || '') }
     }
   }
 
@@ -23,7 +24,9 @@ class Icon {
       ...{ class: classnames(this.attrs.class, attrs.class) }
     }
 
-    return this.contents ? `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>` : ''
+    return this.contents
+      ? `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>`
+      : ''
   }
 }
 

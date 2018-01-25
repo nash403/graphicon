@@ -23,6 +23,10 @@ export default {
     boxSize: {
       type: String,
       default: '1em'
+    },
+    tag: {
+      type: String,
+      default: 'i'
     }
   },
 
@@ -34,7 +38,7 @@ export default {
   },
 
   render (h) {
-    return h('i', {
+    return h(this.tag, {
       class: {
         'g-icon': true
       },
@@ -58,16 +62,19 @@ export default {
 
   setIcons (allIcons = {}) {
     _icons = Object.entries(allIcons)
-      .map(([name, iconData]) => new Icon(name, iconData))
+      .map(
+        ([name, iconData]) =>
+          new Icon(name, ...(Array.isArray(iconData) ? iconData : [iconData]))
+      )
       .reduce((iconsAcc, icon) => {
         iconsAcc[icon.name] = icon
         return iconsAcc
       }, {})
   },
 
-  replaceIcon (name, contents) {
+  replaceIcon (name, contents, attrs) {
     if (_icons[name]) {
-      _icons[name] = new Icon(name, contents)
+      _icons[name] = new Icon(name, contents, attrs)
     }
   },
 

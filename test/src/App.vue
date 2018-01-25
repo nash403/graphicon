@@ -4,14 +4,14 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank"><g-icon name="arrow-left"/> Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank"><g-icon name="arrow-right"/> Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank"><g-icon name="chevron-left"/> Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank"><g-icon name="chevron-right"/> Twitter</a></li>
+      <li><a href="https://vuejs.org" target="_blank"><g-icon name="arrow-left" tag="div"/> Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank"><g-icon name="arrow-right" font-size="1.3em"/> Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank"><g-icon name="chevron-left" box-size="1.3em"/> Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank"><g-icon name="chevron-right" :options="{stroke:'red'}"/> Twitter</a></li>
     </ul>
     <h2>Ecosystem</h2>
     <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank"><g-icon name="trending-up"/> vue-router</a></li>
+      <li><a href="http://router.vuejs.org/" target="_blank"><g-icon name="trending-up" /> vue-router</a></li>
       <li><a href="http://vuex.vuejs.org/" target="_blank"><g-icon name="trending-down"/> vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank"><g-icon name="user"/> vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank"><g-icon name="users"/> awesome-vue</a></li>
