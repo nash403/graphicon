@@ -3,12 +3,31 @@ import DEFAULT_ATTRS from './default-attrs.json'
 class Icon {
   constructor (name, contents, attrs = {}) {
     this.name = name
-    this.contents =
-      typeof contents === 'string' && contents ? removeSVGRootTag(contents) : ''
+    let { str, attributes } =
+      typeof contents === 'string' && contents
+        ? removeSVGRootTag(contents, attrs.keepAttrs)
+        : { str: '', attributes: {} }
+    this.contents = str
+    let keepedAttrs = Array.isArray(attrs.keepAttrs)
+      ? attrs.keepAttrs.reduce((acc, a) => {
+        if (a in attributes) {
+          acc[a] = attributes[a]
+        }
+        return acc
+      }, {})
+      : attributes
+    delete attrs.keepAttrs
     this.attrs = {
       ...DEFAULT_ATTRS,
       ...attrs,
-      ...{ class: classnames(`g-icon-svg gi-${name}`, attrs.class || '') }
+      ...keepedAttrs,
+      ...{
+        class: classnames(
+          `g-icon-svg gi-${name}`,
+          attrs.class || '',
+          keepedAttrs.class || ''
+        )
+      }
     }
   }
 
@@ -36,9 +55,29 @@ class Icon {
  * @param {string} svgString
  * @returns {string}
  */
-function removeSVGRootTag (svgString) {
-  return new DOMParser().parseFromString(svgString, 'image/svg+xml').firstChild
-    .innerHTML
+function removeSVGRootTag (svgString, keepAttrs = false) {
+  let svgRoot = new DOMParser().parseFromString(svgString, 'image/svg+xml')
+    .firstChild
+  return {
+    str: svgRoot.innerHTML,
+    ...(keepAttrs === true || Array.isArray(keepAttrs)
+      ? { attributes: getAttributes(svgRoot) }
+      : { attributes: {} })
+  }
+}
+
+/**
+ * Get attributes from an HTML element as a JSON object
+ * @param {HTMLElement} el
+ * @returns {object} attributes of the element
+ */
+function getAttributes (el) {
+  return Array.from(el.attributes)
+    .map(a => [a.name, a.value])
+    .reduce((acc, attr) => {
+      acc[attr[0]] = attr[1]
+      return acc
+    }, {})
 }
 
 /**

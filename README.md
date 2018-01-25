@@ -32,7 +32,9 @@ Directly include it in html:
   // This will call `Vue.component('g-icon', GIcon)` internally
   Vue.use(GIcon, {
     'arrow-left': require('!svg-inline-loader!@/assets/icons/arrow-left.svg'),
-    'arrow-right': require('!svg-inline-loader!@/assets/icons/arrow-right.svg'),
+    'arrow-right': [require('!svg-inline-loader!@/assets/icons/arrow-right.svg'), {...defaultSvgAttributes...}],
+    // You can pass a `keepAttrs` key to keep attributes from the original svg tag.
+    // The value can be either `true` to keep all attributes, or an array of keys to be kept.
     ...
   })
 
@@ -97,3 +99,29 @@ The `options` props of `g-icon` is an object containing attributes that will be 
 1. `git clone` the repo
 2. run `cd g-icon/test && npm run dev` and it will open your browser at localhost:8080
 3. See the result
+
+## Licence
+
+MIT License
+
+Copyright (c) 2018 Honoré Nintunze
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+> Icons are from [Feather icons](https://feathericons.com/).
