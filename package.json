@@ -1,6 +1,6 @@
 {
   "name": "v-gicon",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A Vue.js plugin/component to help you manage your icons seamlessly",
   "main": "dist/g-icon.js",
   "repository": "https://github.com/nash403/g-icon",
