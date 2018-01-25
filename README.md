@@ -2,6 +2,8 @@
 
 > A Vue.js plugin/component to help you manage your icons seamlessly
 
+:warning: BREAKING CHANGE as for 1.1.0+: default width & height for the svg element is 1em instead of 24.
+
 ## Installation
 
 `npm install v-gicon` or `yarn add v-gicon`
