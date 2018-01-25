@@ -34,7 +34,9 @@ const baseConfig = {
     publicPath: '/',
     filename: '[name].js',
     library: 'GIcon',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    umdNamedDefine: true
   },
   plugins: PROD
     ? [
