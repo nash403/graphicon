@@ -15,6 +15,14 @@ export default {
     options: {
       type: Object,
       default: () => ({})
+    },
+    fontSize: {
+      type: String,
+      default: '1em'
+    },
+    boxSize: {
+      type: String,
+      default: '1em'
     }
   },
 
@@ -29,6 +37,11 @@ export default {
     return h('i', {
       class: {
         'g-icon': true
+      },
+      style: {
+        fontSize: this.fontSize,
+        width: this.boxSize,
+        height: this.boxSize
       },
       attrs: {
         'aria-hidden': true
