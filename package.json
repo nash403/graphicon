@@ -1,6 +1,6 @@
 {
   "name": "graphicon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue.js plugin/component to help you manage your icons seamlessly",
   "main": "dist/graphicon.umd.min.js",
   "module": "src/index.js",
