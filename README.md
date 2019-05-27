@@ -12,18 +12,18 @@
 
   ```js
   // Declare your icons
-  import GIcon from 'graphicon' // or use `window.GIcon` in browsers
+  import GIcon from 'graphicon' // or use `window.GraphIcon` in browsers
 
   // Here I use the svg-inline-loader for webpack to load contents of svg files
   // but you could any method that suits you
-  // This will call `Vue.component('GIcon', GIcon)` internally
+  // This will call `Vue.component('GIcon', GIcon)` internally (or with provided component name)
   Vue.use(GIcon, {
     'arrow-left': require('!svg-inline-loader!@/assets/icons/arrow-left.svg'),
     'arrow-right': [require('!svg-inline-loader!@/assets/icons/arrow-right.svg'), {...defaultSvgAttributes...}],
     // You can pass a `keepAttrs` key to keep attributes from the original svg tag.
     // The value can be either `true` to keep all attributes, or an array of keys to be kept.
     ...
-  })
+  }/*, 'ComponentName' // (defaults: 'GIcon')  */)
 
   // Or just call at some point
   GIcon.setIcons({ ...your icons... })
