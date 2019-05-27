@@ -1,8 +1,8 @@
-import GIcon from './gicon'
+import GIcon from './graphicon'
 
-const install = function (Vue, options) {
-  if (options) GIcon.setIcons(options)
-  Vue.component('g-icon', GIcon)
+const install = function install (Vue, icons, componentName = '') {
+  if (icons) GIcon.setIcons(icons)
+  Vue.component(componentName || 'GIcon', GIcon)
   Vue.prototype.$setIcons = GIcon.setIcons
   Vue.prototype.$icons = GIcon.icons
 }
@@ -10,7 +10,7 @@ const install = function (Vue, options) {
 GIcon.install = install
 
 if (typeof window !== 'undefined') {
-  window.GIcon = GIcon
+  window.GraphIcon = GIcon
 }
 
 export { default as Icon } from './Icon'

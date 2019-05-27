@@ -50,9 +50,10 @@ class Icon {
 }
 
 /**
- * Strip an svg string from the surrounding "<svg ...>*</svg> "
- * and return * as a string
- * @param {string} svgString
+ * Strip an svg string from the surrounding "<svg ...>[content]</svg>"
+ * and return [content] as a string
+ * @param {string} svgString svg content string
+ * @param {boolean} keepAttrs `true` if you want to keep original svg attributes (defaults to `false`)
  * @returns {string}
  */
 function removeSVGRootTag (svgString, keepAttrs = false) {
@@ -73,9 +74,8 @@ function removeSVGRootTag (svgString, keepAttrs = false) {
  */
 function getAttributes (el) {
   return Array.from(el.attributes)
-    .map(a => [a.name, a.value])
     .reduce((acc, attr) => {
-      acc[attr[0]] = attr[1]
+      acc[attr.name] = attr.value
       return acc
     }, {})
 }
@@ -91,7 +91,7 @@ function classnames (...classes) {
       classes
         .join(' ')
         .split(' ')
-        .filter(s => !!s)
+        .filter(s => s)
     )
   ).join(' ')
 }

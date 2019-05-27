@@ -1,9 +1,10 @@
 {
-  "name": "v-gicon",
-  "version": "1.2.0",
+  "name": "graphicon",
+  "version": "1.0.0",
   "description": "A Vue.js plugin/component to help you manage your icons seamlessly",
-  "main": "dist/g-icon.js",
-  "repository": "https://github.com/nash403/g-icon",
+  "main": "dist/graphicon.umd.min.js",
+  "module": "src/index.js",
+  "repository": "https://github.com/nash403/graphicon",
   "author": "Honoré Nintunze <nintu.lab@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -14,22 +15,10 @@
     "svg"
   ],
   "scripts": {
-    "build": "rimraf dist && webpack --progress --hide-modules",
-    "build:prod": "rimraf dist && NODE_ENV=production webpack --progress --hide-modules"
+    "serve": "vue serve test/src/main.js",
+    "build": "vue build --target lib --name graphicon src/index.js"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^4.15.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "rimraf": "^2.6.2",
-    "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0"
+    "svg-inline-loader": "^0.8.0"
   }
 }

@@ -66,9 +66,9 @@ export default {
         ([name, iconData]) =>
           new Icon(name, ...(Array.isArray(iconData) ? iconData : [iconData]))
       )
-      .reduce((iconsAcc, icon) => {
-        iconsAcc[icon.name] = icon
-        return iconsAcc
+      .reduce((icons, icon) => {
+        icons[icon.name] = icon
+        return icons
       }, {})
   },
 
